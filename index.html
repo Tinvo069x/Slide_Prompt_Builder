@@ -6,7 +6,7 @@
 <meta name="slide-prompt-bridge" content="slide-prompt-builder-v1">
 <title>Slide Prompt Builder</title>
 <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Fraunces:opsz,wght@9..144,700;9..144,800;9..144,900&family=Inter:wght@400;500;600;700;800&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
   --bg: #F4F6FB;
@@ -570,6 +570,71 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
   .wizard-navigation{margin:10px 0 5px}
   .builder-footer{margin:14px 12px 0;padding:12px 2px}
 }
+.type-panel{margin-top:18px;padding:18px;background:#F6F9EE;border:1px solid #D7E4CB;border-radius:16px;color:#2C4322;font-family:'DM Sans',Arial,sans-serif}
+.type-panel-head{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.type-panel-head h3{font-size:16px;font-weight:800;margin:0 0 3px}
+.type-panel-head p{font-size:11px;line-height:1.5;color:#6D8061;margin:0}
+.type-ratio-badge{background:#E0EDC3;border:1px solid #BCD68B;border-radius:999px;padding:8px 12px;color:#35561F;font-size:12px;font-weight:800;white-space:nowrap}
+.type-controls{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:17px}
+.type-field{min-width:0;display:flex;flex-direction:column;gap:8px}
+.type-field label{font-size:12px;font-weight:800;color:#3D552F}
+.type-field select{width:100%;height:43px;padding:0 12px;border-radius:10px;border:1px solid #C4D8B5;background:white;color:#233719;font:700 13px 'DM Sans',Arial,sans-serif;cursor:pointer}
+.type-size-row{display:flex;gap:13px;align-items:center;min-height:43px}
+.type-size-row input[type=range]{flex:1;min-width:0}
+.type-size-row output{min-width:57px;text-align:center;background:white;border:1px solid #C4D8B5;border-radius:9px;padding:8px 6px;color:#254017;font-weight:800;font-variant-numeric:tabular-nums}
+.type-preview{margin-top:15px;border:1px solid #CBDCC2;background:#FFF;border-radius:12px;padding:18px;overflow:hidden;font-family:Arial,sans-serif;--preview-base:14.4px}
+.type-preview-row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:10px;line-height:1.2}
+.type-preview-row:last-child{margin-bottom:0}
+.type-preview-row span{flex:1;min-width:0;overflow-wrap:anywhere}
+.type-preview-row small{white-space:nowrap;font:700 11px 'DM Sans',Arial,sans-serif;color:#7B8D71;font-variant-numeric:tabular-nums}
+.type-preview-main{font-size:calc(var(--preview-base)*3);font-weight:800;letter-spacing:-.035em;color:#233C17}
+.type-preview-sub{font-size:calc(var(--preview-base)*1.5);font-weight:700;color:#385927}
+.type-preview-body{font-size:var(--preview-base);font-weight:400;color:#5A6B50}
+.type-note{margin-top:11px;font-size:11px;line-height:1.55;color:#6B7F5B}
+@media(max-width:600px){.type-controls{grid-template-columns:1fr}.type-panel{padding:14px}.type-preview{padding:12px}.type-preview-row{gap:8px}.type-preview-row small{font-size:10px}}
+.platform-picker{margin-top:14px;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.platform-picker-label{font:800 12px 'DM Sans',Arial,sans-serif;color:#3C562C}
+.platform-picker-buttons{display:flex;gap:5px;background:#E5EDDA;border-radius:11px;padding:4px}
+.platform-picker-buttons button{border:0;background:transparent;border-radius:8px;padding:9px 13px;color:#506C40;font:800 12px 'DM Sans',Arial,sans-serif;cursor:pointer}
+.platform-picker-buttons button[aria-pressed="true"]{background:#365524;color:#FFF;box-shadow:0 2px 6px #36552426}
+.platform-picker-buttons button:focus-visible{outline:3px solid #A0C064;outline-offset:2px}
+.platform-notice{padding:11px 13px;margin-top:11px;border-radius:11px;border:1px solid #C3DAEC;background:#EFF8FF;color:#355A70;font:500 11px/1.6 'DM Sans',Arial,sans-serif}
+.platform-notice strong{font-weight:800;color:#194D71}
+.platform-notice[hidden]{display:none!important}
+.output-tools{display:flex;justify-content:flex-end;margin-top:11px}
+.output-copy{border:1px solid #ABC790;background:#E8F3D5;color:#294D20;border-radius:9px;padding:9px 14px;font:800 12px 'DM Sans',Arial,sans-serif;cursor:pointer}
+.output-copy:focus-visible{outline:3px solid #A0C064;outline-offset:2px}
+/* Named nine-step tracker: label > number > colored segment. */
+.progress-viewport{overflow-x:auto;overflow-y:hidden;scrollbar-width:thin;scrollbar-color:#B7C7A4 transparent;scroll-behavior:smooth}
+.progress-steps{gap:7px;margin:10px 0 0}
+.progress-steps .step-dot{height:64px;flex:1 0 0;position:relative;min-width:0;border:0;background:transparent;padding:0;cursor:pointer}
+.progress-steps .step-name{position:absolute;top:1px;left:0;right:0;height:28px;padding:0 3px;color:#718366;text-align:center;font:700 10px/14px 'DM Sans',Arial,sans-serif;letter-spacing:.02em;display:flex;align-items:center;justify-content:center;overflow-wrap:normal}
+.progress-steps .step-index{top:31px;font:800 12px/18px 'DM Sans',Arial,sans-serif}
+.progress-steps .step-dot::before{top:54px;height:7px;border-radius:999px}
+.progress-steps .step-dot.active .step-name{color:#294A18;font-weight:800}
+.progress-steps .step-dot.done .step-name{color:#557A33}
+.progress-steps .step-dot.locked .step-name{color:#93A089}
+.progress-mobile-hint{display:none;margin-top:3px;color:#84937B;font:600 10px 'DM Sans',Arial,sans-serif;text-align:center}
+.mode-only[hidden],.layout-grid[hidden],.infographic-format-wrap[hidden]{display:none!important}
+.infographic-format-wrap{margin-top:15px;padding:16px;border:1px solid #D7E3CC;border-radius:13px;background:#F5F9EC}
+.infographic-format-wrap label{display:block;margin-bottom:9px;color:#38582A;font:800 12px 'DM Sans',Arial,sans-serif}
+.infographic-format-wrap select{width:100%;padding:11px;border:1px solid #BFD5B0;border-radius:9px;background:#fff;color:#29431B;font:700 13px 'DM Sans',Arial,sans-serif}
+.infographic-format-wrap p{margin:9px 0 0;color:#718163;font:500 11px/1.5 'DM Sans',Arial,sans-serif}
+.infographic-preview{height:100%;min-height:80px;padding:9px;background:#F0F5E8;display:flex;flex-direction:column;align-items:stretch;gap:5px}
+.infographic-preview .info-heading{height:8px;width:67%;border-radius:6px;background:#5D823D;align-self:center}
+.infographic-preview .info-block{flex:1;min-height:9px;border-radius:5px;background:#C0D6A1;border:1px solid #A7BF88}
+.infographic-preview .info-block.accent{background:#B9D915;border-color:#B9D915}
+.infographic-preview.horizontal{flex-direction:row;align-items:stretch;gap:5px}
+.infographic-preview.horizontal .info-block{flex:1}
+.infographic-preview.kpi{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:9px 1fr 1fr;gap:5px}
+.infographic-preview.kpi .info-heading{grid-column:1/-1}
+.infographic-preview.kpi .info-block:first-of-type{grid-column:1/-1}
+.infographic-mode #t_agenda,.infographic-mode #t_sandwich,.infographic-mode #t_morph,.infographic-mode #t_animation{display:none!important}
+.infographic-mode #t_morph+.morph-hint,.infographic-mode #t_animation+.morph-hint{display:none!important}
+@media(max-width:800px){
+  .progress-steps{min-width:750px}
+  .progress-mobile-hint{display:block}
+}
 </style>
 </head>
 <body>
@@ -616,7 +681,10 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
     <span class="progress-overline" id="wizardStepLabel">BƯỚC 1 · MỤC ĐÍCH</span>
     <div class="progress-label">Bước <span id="doneCount">1</span> / <span id="totalSteps">9</span></div>
   </div>
-  <nav class="progress-steps" id="progressSteps" aria-label="Điều hướng nhanh giữa 9 bước"></nav>
+  <div class="progress-viewport" id="progressViewport">
+    <nav class="progress-steps" id="progressSteps" aria-label="Điều hướng nhanh giữa 9 bước"></nav>
+  </div>
+  <div class="progress-mobile-hint" aria-hidden="true">⇄ Vuốt ngang để xem tên đủ 9 bước</div>
 </div>
 
 <div class="main">
@@ -626,7 +694,7 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
 <div class="section wizard-step current" data-wizard-step="0">
   <div class="section-header">
     <div class="step-num">1</div>
-    <div class="section-title">Bạn tạo slide để làm gì?</div>
+    <div class="section-title">Bạn muốn tạo nội dung gì?</div>
     <div class="section-sub">Chọn 1</div>
   </div>
   <div class="options-grid cols-3">
@@ -674,6 +742,11 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
       <div class="option-icon">🤝</div><div class="option-name">Tuyển dụng</div>
       <div class="option-desc">Giới thiệu công ty, văn hóa, vị trí cần tuyển</div>
       <div class="option-tag" style="background:#EEF1FF;color:#4F6EF7">HR · Recruiting</div>
+    </div>
+    <div class="option-card" data-key="purpose" data-purpose-type="infographic" data-val="tạo infographic trực quan từ thông tin, quy trình hoặc dữ liệu, giúp người xem hiểu nhanh trong một hoặc nhiều trang" onclick="sel(this)">
+      <div class="option-icon">🧩</div><div class="option-name">Infographic / Data Story</div>
+      <div class="option-desc">Biến số liệu và ý tưởng thành hình thông tin trực quan, dễ chia sẻ</div>
+      <div class="option-tag" style="background:#E4F5D5;color:#447C29">INFOGRAPHIC · VISUAL</div>
     </div>
   </div>
 </div>
@@ -757,11 +830,43 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
       <div class="option-icon">🎨</div><div class="option-name">Playful & Fun</div>
       <div class="option-desc">Vui tươi, nhiều icon. Phù hợp giáo dục</div>
     </div>
-    <div class="option-card" data-key="style" data-val="nature editorial: nền olive đậm, nhấn lime, ảnh thiên nhiên, tiêu đề serif lớn, đường viền mảnh — phong cách Green Modern Nature" onclick="sel(this)">
+    <div class="option-card" data-key="style" data-val="nature editorial: nền olive đậm, nhấn lime, ảnh thiên nhiên, tiêu đề lớn ấn tượng, đường viền mảnh — phong cách Green Modern Nature" onclick="sel(this)">
       <div class="option-icon">🌿</div><div class="option-name">Nature Editorial</div>
       <div class="option-desc">Olive × Lime, ảnh thiên nhiên và typography mạnh như PDF mẫu</div>
       <div class="option-tag" style="background:#DCEBAA;color:#263C0D">New · Nature</div>
     </div>
+  </div>
+  <div class="type-panel" aria-labelledby="typographyHeading">
+    <div class="type-panel-head">
+      <div><h3 id="typographyHeading">Aa · Typography Mode</h3><p>Chuẩn hóa font chữ: trang bìa ×3, header mỗi slide ×1.5, nội dung ×1.</p></div>
+      <div class="type-ratio-badge" aria-label="Tỷ lệ nội dung, tiêu đề phụ, tiêu đề chính">1 : 1.5 : 3</div>
+    </div>
+    <div class="type-controls">
+      <div class="type-field">
+        <label for="slideFontFamily">Font chữ · Sans-serif</label>
+        <select id="slideFontFamily" onchange="updateTypography()">
+          <option value="Inter">Inter · Modern</option>
+          <option value="Aptos">Aptos · PowerPoint / Office</option>
+          <option value="Arial" selected>Arial · Tương thích rộng (đề xuất)</option>
+          <option value="Segoe UI">Segoe UI · Corporate</option>
+          <option value="Montserrat">Montserrat · Bold headings</option>
+          <option value="DM Sans">DM Sans · Minimal</option>
+        </select>
+      </div>
+      <div class="type-field">
+        <label for="typeBodySize">Cỡ chữ nội dung · pt (14–28)</label>
+        <div class="type-size-row">
+          <input id="typeBodySize" type="range" min="14" max="28" step="2" value="18" oninput="updateTypography()" aria-describedby="typeSizeHelp">
+          <output for="typeBodySize" id="typeBodyOutput">18 pt</output>
+        </div>
+      </div>
+    </div>
+    <div class="type-preview" id="typePreview" aria-label="Xem trước phân cấp cỡ chữ">
+      <div class="type-preview-row type-preview-main"><span>Cover Title</span><small id="typeMainValue">54 pt · ×3</small></div>
+      <div class="type-preview-row type-preview-sub"><span>Slide Header</span><small id="typeHeaderValue">27 pt · ×1.5</small></div>
+      <div class="type-preview-row type-preview-body"><span>Body content / Nội dung</span><small id="typeBodyValue">18 pt · ×1</small></div>
+    </div>
+    <p class="type-note" id="typeSizeHelp">🔒 <strong>Cover Title ×3 · Slide Header ×1.5 · Body ×1</strong>. Mọi slide nội dung phải có header đồng nhất về cỡ chữ và vị trí. Nếu chữ dài, rút gọn hoặc xuống dòng; không tự thu nhỏ font. Font chưa cài sẽ dùng Aptos / Arial thay thế.</p>
   </div>
   <div class="tip-box" style="margin-top:12px">
     <strong>💡 Thấy slide đẹp muốn làm theo?</strong> Chụp màn hình slide đó → đính kèm ảnh vào ChatGPT cùng prompt → thêm câu: <em>"Làm theo phong cách của slide trong ảnh đính kèm"</em>. ChatGPT sẽ phân tích màu, font, layout và bắt chước.
@@ -904,13 +1009,24 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
 <div class="section wizard-step" data-wizard-step="4">
   <div class="section-header">
     <div class="step-num">5</div>
-    <div class="section-title">Số lượng slide</div>
+    <div class="section-title" id="countStepTitle">Số lượng slide</div>
   </div>
   <div class="slide-count-wrap">
     <div class="slide-count-display" id="slideCountDisplay">6 <span>slides</span></div>
     <input type="range" min="4" max="100" value="6" id="slideRange" oninput="updateSlideCount(this.value)">
   </div>
-  <div class="tip-box">
+  <div class="infographic-format-wrap" id="infographicFormatWrap" hidden>
+    <label for="infographicFormat">Kích thước &amp; hướng infographic</label>
+    <select id="infographicFormat" onchange="updateInfographicFormat(this.value)">
+      <option value="1080 × 1920 px — portrait 9:16">1080 × 1920 px · Dọc 9:16 (đề xuất)</option>
+      <option value="1080 × 1350 px — portrait 4:5">1080 × 1350 px · Dọc 4:5</option>
+      <option value="1080 × 1080 px — square 1:1">1080 × 1080 px · Vuông 1:1</option>
+      <option value="1920 × 1080 px — landscape 16:9">1920 × 1080 px · Ngang 16:9</option>
+      <option value="A4 portrait — 210 × 297 mm">A4 · Dọc 210 × 297 mm (in/PDF)</option>
+    </select>
+    <p>Chọn kích thước theo nơi sử dụng: website, mạng xã hội, báo cáo hoặc in ấn.</p>
+  </div>
+  <div class="tip-box" id="slideCountTip">
     <strong>Gợi ý:</strong> Pitch deck 8–12 · Báo cáo tháng 6–10 · Bài giảng 15–25 · Kế hoạch kinh doanh 12–20 slides
   </div>
 </div>
@@ -922,7 +1038,7 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
     <div class="section-title">Chọn layout chính</div>
     <div class="section-sub">Chọn nhiều — xem preview</div>
   </div>
-  <div class="layout-grid">
+  <div class="layout-grid" id="presentationLayouts">
 
     <div class="layout-card" data-key="layout" data-val="layout 1 thông điệp chính mỗi slide: tiêu đề lớn ở giữa, text mô tả nhỏ phía dưới, icon hoặc số lớn làm điểm nhấn" onclick="selLayout(this)">
       <div class="layout-preview">
@@ -1043,6 +1159,24 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
     </div>
 
   </div>
+  <div class="layout-grid" id="infographicLayouts" hidden>
+    <div class="layout-card" data-key="layout" data-val="infographic vertical storytelling: tiêu đề lớn ở đầu, thông tin xếp theo các khối dọc từ trên xuống dưới, icon và con số có phân cấp rõ" onclick="selLayout(this)">
+      <div class="layout-preview"><div class="infographic-preview"><div class="info-heading"></div><div class="info-block accent"></div><div class="info-block"></div><div class="info-block"></div></div></div>
+      <div class="layout-name">Vertical Story</div><div class="layout-desc">Kể chuyện thông tin theo chiều dọc</div>
+    </div>
+    <div class="layout-card" data-key="layout" data-val="infographic KPI dashboard: tiêu đề trên, các chỉ số nổi bật trong thẻ và biểu đồ đơn giản, highlight insight quan trọng" onclick="selLayout(this)">
+      <div class="layout-preview"><div class="infographic-preview kpi"><div class="info-heading"></div><div class="info-block accent"></div><div class="info-block"></div><div class="info-block"></div><div class="info-block"></div></div></div>
+      <div class="layout-name">KPI &amp; Data</div><div class="layout-desc">Phù hợp KPI, inventory, supply chain</div>
+    </div>
+    <div class="layout-card" data-key="layout" data-val="infographic comparison split: hai nửa đối chiếu cùng thang đo, màu phân biệt rõ, các điểm khác nhau hiển thị trực quan" onclick="selLayout(this)">
+      <div class="layout-preview"><div class="infographic-preview horizontal"><div class="info-block accent"></div><div class="info-block"></div></div></div>
+      <div class="layout-name">Compare A vs B</div><div class="layout-desc">So sánh trước/sau hoặc hai phương án</div>
+    </div>
+    <div class="layout-card" data-key="layout" data-val="infographic process roadmap: các bước theo luồng đọc có số thứ tự, mũi tên, icon và đoạn giải thích ngắn" onclick="selLayout(this)">
+      <div class="layout-preview"><div class="infographic-preview"><div class="info-heading"></div><div class="info-block"></div><div class="info-block accent"></div><div class="info-block"></div></div></div>
+      <div class="layout-name">Process / Roadmap</div><div class="layout-desc">Quy trình, timeline, hướng dẫn từng bước</div>
+    </div>
+  </div>
 </div>
 
 <!-- STEP 7: YÊU CẦU ĐẶC BIỆT -->
@@ -1137,13 +1271,13 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
 <div class="section wizard-step" data-wizard-step="7">
   <div class="section-header">
     <div class="step-num" style="background:#F5A623">✎</div>
-    <div class="section-title">Tài liệu, nội dung muốn làm slide</div>
+    <div class="section-title" id="contentStepTitle">Tài liệu, nội dung muốn làm slide</div>
     <div class="section-sub">Bắt buộc</div>
   </div>
   <textarea class="content-input" id="contentInput"
     placeholder="Dán tài liệu vào đây — có thể là:&#10;• Mô tả sản phẩm / dịch vụ của bạn&#10;• Số liệu, kết quả muốn trình bày&#10;• Ý tưởng hoặc chiến lược cần trình bày&#10;• Nội dung thô bất kỳ — ChatGPT sẽ tự tổ chức lại"
     oninput="buildPrompt()" rows="6"></textarea>
-  <div class="tip-box">
+  <div class="tip-box" id="contentStepTip">
     <strong>💡 Mẹo:</strong> Không cần dọn dẹp hay viết hoàn hảo. Gửi tài liệu thô cũng được — ChatGPT tự sắp xếp thành cấu trúc slide hợp lý. Nếu dùng màu brand riêng, ghi mã hex vào đây.
   </div>
 </div>
@@ -1159,6 +1293,14 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
   </div>
 </div>
 <div class="language-note" id="languageNote">Đổi ngôn ngữ sẽ cập nhật ngay prompt bên dưới, không làm mất các lựa chọn.</div>
+<div class="platform-picker">
+  <span class="platform-picker-label">Xuất prompt cho:</span>
+  <div class="platform-picker-buttons" role="group" aria-label="Chọn nền tảng tạo slide">
+    <button type="button" id="platformPptx" aria-pressed="true" onclick="setOutputPlatform('pptx')">📊 PowerPoint</button>
+    <button type="button" id="platformCanva" aria-pressed="false" onclick="setOutputPlatform('canva')">🎨 Canva AI</button>
+  </div>
+</div>
+<div class="platform-notice" id="canvaPlatformNotice" hidden><strong>Lưu ý Canva AI:</strong> Prompt sẽ yêu cầu font và cỡ chữ đã chọn, nhưng Canva có thể ưu tiên font của template. Để nhất quán hơn, vào Canva AI → dấu + → <strong>Apply brand</strong> và chọn Brand Kit đã cấu hình cùng font / cỡ chữ. HTML không thể ép font trực tiếp trong Canva.</div>
 <div class="output-box">
   <div class="output-header">
     <div style="display:flex;align-items:center;gap:10px">
@@ -1172,6 +1314,7 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
   </div>
   <div class="output-content" id="promptOutput"><span class="output-empty">Chọn các tùy chọn bên trên — prompt sẽ tự động tạo ở đây...</span></div>
 </div>
+<div class="output-tools"><button type="button" class="output-copy" id="copyCurrentPrompt" onclick="copyPrompt(ok => {this.textContent = ok ? '✓ Đã sao chép' : 'Không thể sao chép'; setTimeout(() => this.textContent = '⧉ Sao chép prompt', 2000)})">⧉ Sao chép prompt</button></div>
 <div class="chatgpt-actions">
   <button type="button" class="chatgpt-action autofill" id="bridgeChatGPT" onclick="openPlatform('chatgpt')">✦ ChatGPT · Auto-run</button>
   <button type="button" class="chatgpt-action autofill canva-auto" id="bridgeCanva" onclick="openPlatform('canva')">✦ Canva AI · Auto-run</button>
@@ -1192,7 +1335,9 @@ body{background:radial-gradient(circle at 5% 15%,#E9EED8 0,transparent 26%),#F2F
 <script>
 const state = {
   purpose:'', audience:'', style:'', color:'', slides:6, layout:'', extras:{},
-  content:'', outputLanguage:'vi',
+  purposeMode:'presentation', infographicFormat:'1080 × 1920 px — portrait 9:16',
+  content:'', outputLanguage:'vi', outputPlatform:'pptx',
+  typography:{ font:'Arial', body:18 },
   palette:{ base:'#18240D', primary:'#607D31', accent:'#B9D915' },
   baseWasEdited:false
 };
@@ -1226,7 +1371,8 @@ const englishOptions = {
     'a media kit or personal-brand portfolio for potential collaborations',
     'a detailed business plan covering the market, finances, and growth roadmap',
     'an event or conference agenda, presentation, or recap',
-    'a recruitment presentation introducing the company, culture, and job openings'
+    'a recruitment presentation introducing the company, culture, and job openings',
+    'an infographic or data-story visual explaining information, a process, or metrics at a glance'
   ],
   audience: [
     'investors or executives — professional, persuasive tone with clear supporting data',
@@ -1246,7 +1392,7 @@ const englishOptions = {
     'editorial magazine style: creative asymmetrical compositions and expressive oversized typography',
     'corporate professional: balanced layouts and a navy palette suitable for established enterprises',
     'playful and colorful: bright hues, abundant icons, educational and approachable style',
-    'nature editorial: deep olive background, lime accents, nature imagery, bold oversized serif headings and fine outlines — inspired by Green Modern Nature'
+    'nature editorial: deep olive background, lime accents, nature imagery, bold oversized headings and fine outlines — inspired by Green Modern Nature'
   ],
   color: [
     '#607D31 (nature olive)',
@@ -1284,6 +1430,13 @@ const englishExtras = {
   extra_morph: 'enable Morph Mode: smoothly transform shared objects across adjacent slides',
   extra_animation: 'enable Animation Mode: animate individual text, images, icons, and key figures inside slides in a meaningful sequence'
 };
+
+const englishInfographicLayouts = [
+  'vertical storytelling infographic: a strong top headline, clear top-to-bottom information sections with icons and key numbers',
+  'data and KPI infographic: prominent metrics in clean cards, mini charts, and one highlighted key insight',
+  'two-sided comparison infographic: clearly balanced side-by-side comparisons with consistent scales and contrasting highlights',
+  'process and roadmap infographic: numbered steps, directional connectors, concise captions and consistent icons'
+];
 
 const presetAccentColors = [
   '#B9D915','#E040C8','#00C48C','#4F6EF7','#7C3AED','#F5C842',
@@ -1383,8 +1536,63 @@ function paletteInstructions(english) {
   ];
 }
 
-function motionInstructions(english) {
+function typographyInstructions(english, canva=false) {
+  const {font,body}=state.typography;
+  const header=body*1.5;
+  const cover=body*3;
+  if (english) return [
+    'Typography mode : STRICT 1 : 1.5 : 3 hierarchy (font sizes in points)',
+    '  • Font          : '+font+' — professional sans-serif throughout (fallback to Aptos or Arial if unavailable; never use serif)',
+    '  • Cover title   : '+cover+' pt (×3) — main title on the cover slide only',
+    '  • Slide header  : '+header+' pt (×1.5) — title of EVERY content slide, identically sized',
+    '  • Body content  : '+body+' pt (×1) — paragraphs, bullets, supporting text',
+    '  • Lock slide-header consistency: every content slide uses the same '+header+' pt font size, font family, weight, alignment, and header position/margins. Never resize individual slide headers.',
+    '  • Do not use the '+cover+' pt cover-title size for ordinary content-slide headers. Keep these exact sizes and the 1 : 1.5 : 3 ratio for their defined roles.',
+    '  • If a header is too long, shorten it or wrap it to two lines while preserving '+header+' pt. If body text does not fit, summarize or redistribute content; do not shrink independently or allow clipping. Text remains editable in '+(canva?'Canva':'PowerPoint')+'.',
+    '  • This sans-serif and sizing rule takes precedence over visual-style descriptions and reference designs.'
+  ];
+  return [
+    'Chế độ chữ     : KHÓA tỷ lệ 1 : 1.5 : 3 (đơn vị pt)',
+    '  • Font          : '+font+' — font không chân chuyên nghiệp cho toàn bộ slide (nếu thiếu font: Aptos hoặc Arial; không dùng serif)',
+    '  • Main Title (trang bìa)    : '+cover+' pt (×3) — chỉ dùng cho tiêu đề chính trang bìa',
+    '  • Slide Header (mỗi slide) : '+header+' pt (×1.5) — tiêu đề của TẤT CẢ slide nội dung',
+    '  • Body (nội dung)         : '+body+' pt (×1) — đoạn văn, bullet, chú giải nội dung',
+    '  • KHÓA đồng nhất header: mọi slide nội dung đều dùng đúng '+header+' pt, cùng font, độ đậm, căn chỉnh, vị trí và lề tiêu đề. Không tùy ý chỉnh cỡ header từng slide.',
+    '  • Không lấy cỡ '+cover+' pt của trang bìa làm header slide nội dung. Giữ chính xác 3 cấp chữ theo vai trò và tỷ lệ 1 : 1.5 : 3.',
+    '  • Nếu header dài: rút gọn hoặc xuống hai dòng nhưng giữ nguyên '+header+' pt. Nếu nội dung không vừa: tóm tắt/chia slide; không thu nhỏ font riêng lẻ và không để chữ tràn/cắt. Text phải chỉnh sửa được trong '+(canva?'Canva':'PowerPoint')+'.',
+    '  • Quy tắc font không chân và cỡ chữ này ưu tiên hơn mô tả phong cách hoặc hình tham khảo.'
+  ];
+}
+
+function updateTypography() {
+  const fontSelect=document.getElementById('slideFontFamily');
+  const sizeInput=document.getElementById('typeBodySize');
+  const body=Math.min(28,Math.max(14,Number(sizeInput.value)||18));
+  state.typography.font=fontSelect.value;
+  state.typography.body=body;
+  const header=body*1.5;
+  const cover=body*3;
+  document.getElementById('typeBodyOutput').textContent=body+' pt';
+  document.getElementById('typeBodyValue').textContent=body+' pt · ×1';
+  document.getElementById('typeHeaderValue').textContent=header+' pt · ×1.5';
+  document.getElementById('typeMainValue').textContent=cover+' pt · ×3';
+  const preview=document.getElementById('typePreview');
+  preview.style.fontFamily='"'+state.typography.font+'", Arial, sans-serif';
+  preview.style.setProperty('--preview-base',(body*0.8)+'px');
+  buildPrompt();
+}
+
+function motionInstructions(english, canva=false) {
   const lines=[];
+  if (canva) {
+    if (state.extras.extra_morph) lines.push(english
+      ? '• Use subtle smooth slide-to-slide transitions where supported in Canva; do not claim a native Morph transition unless it actually exists in the design.'
+      : '• Chỉ dùng chuyển cảnh giữa các slide nhẹ nhàng khi Canva hỗ trợ; không khẳng định đã tạo Morph thật nếu chưa có hiệu ứng đó.');
+    if (state.extras.extra_animation) lines.push(english
+      ? '• Use restrained editable Canva animations (e.g. subtle entrance) only when available; avoid animating every element.'
+      : '• Dùng animation có sẵn trong Canva ở mức vừa phải nếu khả dụng; không làm tất cả đối tượng chuyển động.');
+    return lines;
+  }
   if (state.extras.extra_morph) {
     lines.push(english?'\nMorph Mode — slide transitions:':'\nMorph Mode — hiệu ứng chuyển slide:');
     lines.push(english
@@ -1416,10 +1624,11 @@ function choiceText(key) {
 function layoutText() {
   const selected = [...document.querySelectorAll('.layout-card.selected')];
   if (!selected.length) return state.outputLanguage === 'en' ? '[not selected]' : '[chưa chọn]';
-  const all = [...document.querySelectorAll('.layout-card')];
+  const all = [...document.querySelectorAll(state.purposeMode==='infographic'?'#infographicLayouts .layout-card':'#presentationLayouts .layout-card')];
   return selected.map(el => {
     if (state.outputLanguage === 'vi') return el.dataset.val;
-    return englishOptions.layout[all.indexOf(el)] || el.dataset.val;
+    const list=state.purposeMode==='infographic'?englishInfographicLayouts:englishOptions.layout;
+    return list[all.indexOf(el)] || el.dataset.val;
   }).join('\n                   • ');
 }
 
@@ -1436,6 +1645,31 @@ function setOutputLanguage(language) {
   document.getElementById('chatgptHandoffStatus').textContent = language === 'vi'
     ? 'Có extension: ChatGPT và Canva AI đều thử tự điền và Gửi một lần. Chưa có extension: tự sao chép, mở trang và bạn dán thủ công.'
     : 'With the extension, ChatGPT and Canva AI both attempt to fill and submit once. Without it: copy, open and paste manually.';
+  updatePlatformNotice();
+  buildPrompt();
+}
+
+function updatePlatformNotice() {
+  const canva=state.outputPlatform==='canva';
+  const infographic=state.purposeMode==='infographic';
+  const notice=document.getElementById('canvaPlatformNotice');
+  notice.hidden=!canva;
+  if (canva) notice.innerHTML=state.outputLanguage==='en'
+    ? '<strong>Canva AI note:</strong> The prompt requests your selected font and sizes, but a Canva template may override them. For closer consistency, go to Canva AI → + → <strong>Apply brand</strong> and select a Brand Kit with matching typography. This HTML cannot directly set Canva text styles.'
+    : '<strong>Lưu ý Canva AI:</strong> Prompt sẽ yêu cầu font và cỡ chữ đã chọn, nhưng Canva có thể ưu tiên font của template. Để nhất quán hơn, vào Canva AI → dấu + → <strong>Apply brand</strong> và chọn Brand Kit đã cấu hình cùng font / cỡ chữ. HTML không thể ép font trực tiếp trong Canva.';
+  document.getElementById('outputReady').textContent=state.outputLanguage==='en'
+    ? (infographic?(canva?'Canva infographic prompt ready':'Infographic SVG/PNG prompt ready'):(canva?'Canva AI prompt ready':'PowerPoint prompt ready'))
+    : (infographic?(canva?'Prompt Infographic Canva đã sẵn sàng':'Prompt Infographic SVG/PNG đã sẵn sàng'):(canva?'Prompt Canva AI đã sẵn sàng':'Prompt PowerPoint đã sẵn sàng'));
+  document.getElementById('platformPptx').textContent=infographic?'🖼️ ChatGPT · SVG/PNG':'📊 PowerPoint';
+  document.getElementById('platformCanva').textContent=infographic?'🎨 Canva Infographic':'🎨 Canva AI';
+}
+
+function setOutputPlatform(platform) {
+  if (platform!=='pptx' && platform!=='canva') return;
+  state.outputPlatform=platform;
+  document.getElementById('platformPptx').setAttribute('aria-pressed',String(platform==='pptx'));
+  document.getElementById('platformCanva').setAttribute('aria-pressed',String(platform==='canva'));
+  updatePlatformNotice();
   buildPrompt();
 }
 
@@ -1446,6 +1680,10 @@ function initProgress() {
     const d=document.createElement('button');
     d.type='button';
     d.className='step-dot'; d.id='dot'+i; w.appendChild(d);
+    const name=document.createElement('span');
+    name.className='step-name'; name.textContent=STEP_LABELS[i];
+    name.setAttribute('aria-hidden','true');
+    d.appendChild(name);
     const number=document.createElement('span');
     number.className='step-index'; number.textContent=String(i+1);
     number.setAttribute('aria-hidden','true');
@@ -1514,6 +1752,14 @@ function showStep(index,scroll=true) {
     step.setAttribute('aria-hidden',String(!active));
   });
   refreshProgress();
+  const track=document.getElementById('progressViewport');
+  const dot=document.getElementById('dot'+index);
+  if (track && dot && track.scrollWidth>track.clientWidth+2) {
+    const trackBox=track.getBoundingClientRect();
+    const dotBox=dot.getBoundingClientRect();
+    const center=track.scrollLeft+(dotBox.left-trackBox.left)+(dotBox.width/2);
+    track.scrollTo({left:Math.max(0,center-track.clientWidth/2),behavior:scroll?'smooth':'auto'});
+  }
   if (scroll) document.querySelector('.progress-wrap').scrollIntoView({behavior:'smooth',block:'start'});
 }
 
@@ -1543,12 +1789,56 @@ function sel(el){
   document.querySelectorAll('[data-key="'+key+'"]').forEach(e=>e.classList.remove('selected'));
   el.classList.add('selected');
   state[key]=el.dataset.val;
+  if (key==='purpose') setPurposeMode(el.dataset.purposeType==='infographic'?'infographic':'presentation');
   syncCardPressed();
   if (key === 'style' && !state.baseWasEdited) {
     state.palette.base = state.style.startsWith('dark mode') ? '#111827' : state.style.startsWith('nature editorial') ? '#18240D' : '#F8FAFC';
     renderPalette();
   }
   refreshProgress(); buildPrompt();
+}
+
+function setPurposeMode(mode) {
+  if (mode!== 'infographic' && mode!== 'presentation') return;
+  if (mode===state.purposeMode) return;
+  const infographic=mode==='infographic';
+  state.purposeMode=mode;
+  document.body.classList.toggle('infographic-mode',infographic);
+  document.getElementById('countStepTitle').textContent=infographic?'Số trang infographic':'Số lượng slide';
+  document.getElementById('infographicFormatWrap').hidden=!infographic;
+  document.getElementById('presentationLayouts').hidden=infographic;
+  document.getElementById('infographicLayouts').hidden=!infographic;
+  document.getElementById('slideCountTip').innerHTML=infographic
+    ? '<strong>Gợi ý:</strong> 1 trang cho infographic mạng xã hội · 2–4 trang cho bộ infographic theo chủ đề · Ưu tiên ít chữ, biểu đồ rõ, dễ đọc.'
+    : '<strong>Gợi ý:</strong> Pitch deck 8–12 · Báo cáo tháng 6–10 · Bài giảng 15–25 · Kế hoạch kinh doanh 12–20 slides';
+  document.getElementById('contentStepTitle').textContent=infographic?'Dữ liệu, nội dung muốn tạo infographic':'Tài liệu, nội dung muốn làm slide';
+  document.getElementById('contentStepTip').innerHTML=infographic
+    ? '<strong>💡 Mẹo:</strong> Dán số liệu, ý chính, bảng so sánh hoặc quy trình. AI sẽ chuyển thành infographic trực quan, ưu tiên dữ liệu thật, hình ảnh và ít chữ.'
+    : '<strong>💡 Mẹo:</strong> Không cần dọn dẹp hay viết hoàn hảo. Gửi tài liệu thô cũng được — ChatGPT tự sắp xếp thành cấu trúc slide hợp lý. Nếu dùng màu brand riêng, ghi mã hex vào đây.';
+  const statLabel=document.querySelector('#t_stat .toggle-label');
+  if(statLabel) statLabel.textContent=infographic?'Thêm con số nổi bật':'Thêm slide số liệu ấn tượng';
+  const ctaLabel=document.querySelector('#t_cta .toggle-label');
+  if(ctaLabel) ctaLabel.textContent=infographic?'Call-to-action cuối infographic':'Thêm slide kêu gọi hành động cuối';
+  STEP_LABELS[4]=infographic?'SỐ TRANG':'SỐ SLIDE';
+  STEP_HELP[4]=infographic?'Chọn số trang và kích thước infographic':'Điều chỉnh số lượng slide nếu cần';
+  STEP_HELP[5]=infographic?'Chọn layout infographic phù hợp':'Chọn ít nhất một layout';
+  const stepName=document.querySelector('#dot4 .step-name');
+  if(stepName) stepName.textContent=STEP_LABELS[4];
+  const range=document.getElementById('slideRange');
+  range.min=infographic?'1':'4';
+  range.max=infographic?'10':'100';
+  state.slides=infographic?1:6;
+  range.value=state.slides;
+  document.querySelectorAll('.layout-card.selected').forEach(card=>card.classList.remove('selected'));
+  state.layout='';
+  if(infographic) ['extra_agenda','extra_sandwich','extra_morph','extra_animation'].forEach(key=>{
+    delete state.extras[key];
+    const row=document.querySelector('[onclick*="\''+key+'\'"]');
+    if(row){row.classList.remove('active');if(row.getAttribute('role')==='switch')row.setAttribute('aria-checked','false');}
+  });
+  syncCardPressed();
+  updateSlideCount(state.slides);
+  updatePlatformNotice();
 }
 
 function selLayout(el){
@@ -1576,8 +1866,16 @@ function selColor(el){
 }
 
 function updateSlideCount(v){
-  state.slides=parseInt(v);
-  document.getElementById('slideCountDisplay').innerHTML=v+' <span>slides</span>';
+  const infographic=state.purposeMode==='infographic';
+  state.slides=Math.max(infographic?1:4,Math.min(infographic?10:100,parseInt(v,10)||1));
+  document.getElementById('slideCountDisplay').innerHTML=state.slides+' <span>'+(infographic?'pages':'slides')+'</span>';
+  buildPrompt();
+}
+
+function updateInfographicFormat(format){
+  const select=document.getElementById('infographicFormat');
+  if (![...select.options].some(option=>option.value===format)) return;
+  state.infographicFormat=format;
   buildPrompt();
 }
 
@@ -1590,13 +1888,85 @@ function tog(id,key,val){
   buildPrompt();
 }
 
+function buildInfographicPrompt(english,canva){
+  const {font,body}=state.typography;
+  const section=body*1.5;
+  const heading=body*3;
+  const size=state.infographicFormat;
+  const count=state.slides;
+  const p=state.palette;
+  const lines=[];
+  if(english){
+    lines.push(canva
+      ? 'Create '+count+' polished, fully editable infographic page(s) directly in Canva AI. This is an infographic design, NOT a slide presentation.'
+      : 'Create '+count+' polished infographic page(s) as downloadable SVG and high-resolution PNG (and PDF if available). This is NOT a PowerPoint presentation.');
+    lines.push('── INFOGRAPHIC SPECIFICATION ───────────────');
+    lines.push('Purpose       : '+choiceText('purpose'));
+    lines.push('Audience      : '+choiceText('audience'));
+    lines.push('Visual style  : '+choiceText('style'));
+    lines.push('Canvas size   : '+size+' for each of the '+count+' page(s)');
+    lines.push('Main layout   : '+layoutText());
+    lines.push('Color system  : 60% background '+p.base+', 30% primary '+p.primary+', 10% accent '+p.accent+' (approximate visual-area balance per page)');
+    lines.push('Typography    : '+font+' sans-serif ONLY; main infographic heading '+heading+' pt (×3), section headings '+section+' pt (×1.5), body labels '+body+' pt (×1). Keep the exact 1 : 1.5 : 3 hierarchy and never distort the font.');
+    lines.push('Language      : English — translate non-English source faithfully, preserving values and units.');
+    lines.push('Design rules:');
+    lines.push('• Organize information in a clear reading order with one main takeaway, concise sections, icons and appropriate diagrams or charts.');
+    lines.push('• Prefer data visualization over long text; use consistent spacing, high contrast and readable labels at the selected canvas size.');
+    lines.push('• Do not invent statistics, sources, quotes or comparisons. Every numerical insight must be grounded in the supplied content.');
+    if(canva) lines.push('• Use native editable Canva text, vectors and charts wherever possible; if a Brand Kit is manually applied, follow its matching font styles. Do not flatten text into an image.');
+    else lines.push('• Keep vector shapes and SVG text editable; provide the final graphic files for download.');
+  }else{
+    lines.push(canva
+      ? 'Tạo '+count+' trang Infographic chuyên nghiệp, có thể chỉnh sửa trực tiếp trong Canva AI. Đây là THIẾT KẾ INFOGRAPHIC, không phải bài thuyết trình slide.'
+      : 'Tạo '+count+' trang Infographic chuyên nghiệp; xuất SVG và PNG độ phân giải cao để tải về (thêm PDF nếu có thể). KHÔNG tạo bài PowerPoint.');
+    lines.push('── THÔNG SỐ INFOGRAPHIC ───────────────────');
+    lines.push('Mục đích      : '+choiceText('purpose'));
+    lines.push('Người xem     : '+choiceText('audience'));
+    lines.push('Phong cách    : '+choiceText('style'));
+    lines.push('Kích thước    : '+size+' cho mỗi trang trong '+count+' trang');
+    lines.push('Layout chính  : '+layoutText());
+    lines.push('Màu sắc       : khoảng 60% nền '+p.base+', 30% chủ đạo '+p.primary+', 10% nhấn '+p.accent+' trên mỗi trang');
+    lines.push('Typography    : chỉ dùng font không chân '+font+'; tiêu đề chính infographic '+heading+' pt (×3), tiêu đề từng phần '+section+' pt (×1.5), nội dung '+body+' pt (×1). Giữ đúng tỷ lệ 1 : 1.5 : 3 và không bóp méo chữ.');
+    lines.push('Ngôn ngữ      : Tiếng Việt — dịch nội dung nguồn khi cần, giữ nguyên số liệu và đơn vị.');
+    lines.push('Quy tắc thiết kế:');
+    lines.push('• Có một thông điệp chính; sắp xếp thông tin theo luồng đọc rõ, chia mục ngắn, dùng icon, biểu đồ và sơ đồ phù hợp.');
+    lines.push('• Ưu tiên trực quan hóa thay vì nhiều chữ; giữ khoảng trắng, tương phản cao và nhãn đủ lớn ở kích thước đã chọn.');
+    lines.push('• Không tự bịa số liệu, nguồn, trích dẫn hoặc so sánh. Mọi insight định lượng phải dựa trên nội dung cung cấp.');
+    if(canva) lines.push('• Ưu tiên text, vector và biểu đồ Canva chỉnh sửa được; nếu đã tự chọn Brand Kit trong Canva thì dùng bộ font tương ứng. Không chuyển chữ thành ảnh.');
+    else lines.push('• Giữ text SVG và shape vector chỉnh sửa được; cung cấp các file thiết kế để tải về.');
+  }
+  const allowed=['extra_logo','extra_img','extra_stat','extra_cta','extra_quote','extra_min'];
+  const extras=allowed.filter(key=>state.extras[key]);
+  if(extras.length){
+    lines.push(english?'Additional requirements:':'Yêu cầu bổ sung:');
+    extras.forEach(key=>{
+      if(key==='extra_cta') lines.push(english?'• Add a concise call-to-action at the bottom of the last infographic page.':'• Đặt lời kêu gọi hành động ngắn ở cuối trang infographic cuối cùng.');
+      else if(key==='extra_min') lines.push(english?'• Keep text extremely concise, using short visual labels instead of paragraphs.':'• Cực kỳ ít chữ; ưu tiên nhãn ngắn và hình trực quan thay cho đoạn văn dài.');
+      else if(key==='extra_logo') lines.push(english?'• Place the supplied logo in an unobtrusive top corner without distortion.':'• Đặt logo đã cung cấp ở góc trên phù hợp, không làm méo tỷ lệ.');
+      else if(key==='extra_stat') lines.push(english?'• Highlight at least one important data point or number.':'• Nhấn mạnh ít nhất một con số hoặc dữ liệu quan trọng.');
+      else lines.push('• '+(english?(englishExtras[key]||state.extras[key]):state.extras[key]));
+    });
+  }
+  lines.push('\n'+(english?'── SOURCE CONTENT ────────────────────────':'── NỘI DUNG NGUỒN ────────────────────────'));
+  lines.push(state.content.trim() || (english?'[Paste your infographic source here]':'[Dán dữ liệu hoặc ý tưởng infographic vào đây]'));
+  return lines.join('\n');
+}
+
 function buildPrompt(){
   state.content=document.getElementById('contentInput').value;
   refreshProgress();
   const lines=[];
   const english = state.outputLanguage === 'en';
+  const canva = state.outputPlatform === 'canva';
+  if(state.purposeMode==='infographic'){
+    document.getElementById('promptOutput').textContent=buildInfographicPrompt(english,canva);
+    return;
+  }
   if (english) {
-    lines.push('Create a PowerPoint presentation (.pptx) based on the following requirements:\n');
+    lines.push(canva
+      ? 'Create an editable 16:9 Canva Presentation directly in Canva AI based on the following requirements. Build a real Canva presentation, not a PowerPoint export.\n'
+      : 'Create a PowerPoint presentation (.pptx) based on the following requirements:\n');
+    if (canva) lines.push('TOP PRIORITY — CANVA TYPOGRAPHY: Use native editable Canva text boxes. Preserve the exact selected font family and 3 font sizes for cover, slide headers and body, ahead of template font choices. If the user applies a Canva Brand Kit, use its corresponding font styles. Do not bake text into images.');
     lines.push('── INSTRUCTIONS ──────────────────────────');
     lines.push('Purpose        : '+choiceText('purpose'));
     lines.push('Audience       : '+choiceText('audience'));
@@ -1605,24 +1975,33 @@ function buildPrompt(){
     lines.push(...paletteInstructions(true));
     lines.push('Slide count    : '+state.slides+' slides');
     lines.push('Main layout    : '+layoutText());
+    lines.push(...typographyInstructions(true,canva));
     lines.push('Slide language : English');
-    const extras = Object.entries(state.extras);
+    const extras = Object.entries(state.extras).filter(([key])=>!canva || (key!=='extra_morph' && key!=='extra_animation'));
     if (extras.length) {
       lines.push('\nAdditional requirements:');
       extras.forEach(([key, val]) => lines.push('• ' + (englishExtras[key] || val)));
     }
-    lines.push(...motionInstructions(true));
+    lines.push(...motionInstructions(true,canva));
     lines.push('\nDesign guidelines:');
     lines.push('• Create polished, professional slides without overcrowding them with text');
     lines.push('• Include a visual element on every slide (icon, photo, chart, or decorative shape)');
-    lines.push('• Choose typography that fits the selected visual style');
+    lines.push('• Follow the strict typography sizes and sans-serif font specified above');
     lines.push('• Use English for all slide titles, labels, charts, and body text');
     lines.push('• Translate any non-English source material into natural, professional English while preserving names, facts, figures, and units');
-    lines.push('• Generate a downloadable .pptx file\n');
+    if(canva) {
+      lines.push('• Keep every text element editable as Canva text, including chart labels and titles; do not turn text into background images.');
+      lines.push('• Use the same header position and the exact same '+(state.typography.body*1.5)+' pt size across content slides. Preserve the original '+state.typography.font+' font whenever available in Canva.');
+      lines.push('• Before finishing, check font family and point size on the cover, one content header, and body text. If Canva cannot enforce a setting automatically, identify which elements need manual adjustment in the Canva editor.');
+      lines.push('• Deliver an editable presentation in Canva; do not switch to a PowerPoint export.\n');
+    } else lines.push('• Generate a downloadable .pptx file\n');
     lines.push('── SOURCE CONTENT ────────────────────────');
     lines.push(state.content.trim() || '[Paste your reference material and content here]');
   } else {
-    lines.push('Tạo bài thuyết trình PowerPoint (.pptx) cho tôi theo yêu cầu dưới đây:\n');
+    lines.push(canva
+      ? 'Tạo bài thuyết trình Canva Presentation 16:9, chỉnh sửa trực tiếp được trong Canva AI theo các yêu cầu dưới đây. Không tạo file PowerPoint thay thế.\n'
+      : 'Tạo bài thuyết trình PowerPoint (.pptx) cho tôi theo yêu cầu dưới đây:\n');
+    if (canva) lines.push('ƯU TIÊN CAO NHẤT — FONT CANVA: Dùng hộp chữ Canva có thể chỉnh sửa, giữ chính xác font đã chọn và ba cấp chữ của trang bìa / header / nội dung; không để font template thay thế. Nếu người dùng đã chọn Canva Brand Kit, ưu tiên các kiểu chữ tương ứng. Không biến chữ thành ảnh.');
     lines.push('── INSTRUCTIONS ──────────────────────────');
     lines.push('Mục đích       : '+choiceText('purpose'));
     lines.push('Người xem      : '+choiceText('audience'));
@@ -1631,20 +2010,26 @@ function buildPrompt(){
     lines.push(...paletteInstructions(false));
     lines.push('Số lượng slide : '+state.slides+' slides');
     lines.push('Layout chính   : '+layoutText());
+    lines.push(...typographyInstructions(false,canva));
     lines.push('Ngôn ngữ slide : Tiếng Việt');
-    const extras = Object.values(state.extras);
+    const extras = Object.entries(state.extras).filter(([key])=>!canva || (key!=='extra_morph' && key!=='extra_animation')).map(([,val])=>val);
     if (extras.length) {
       lines.push('\nYêu cầu thêm:');
       extras.forEach(val => lines.push('• '+val));
     }
-    lines.push(...motionInstructions(false));
+    lines.push(...motionInstructions(false,canva));
     lines.push('\nQuy tắc thiết kế:');
     lines.push('• Thiết kế đẹp, chuyên nghiệp — không nhồi quá nhiều text vào 1 slide');
     lines.push('• Mỗi slide cần có visual element (icon, hình, chart hoặc shape trang trí)');
-    lines.push('• Dùng font chữ phù hợp với phong cách đã chọn');
+    lines.push('• Tuân thủ chính xác font không chân và tỷ lệ cỡ chữ đã khóa ở trên');
     lines.push('• Toàn bộ tiêu đề, nhãn, biểu đồ và nội dung slide dùng tiếng Việt');
     lines.push('• Nếu tài liệu gốc không phải tiếng Việt, hãy dịch tự nhiên và chính xác, giữ nguyên tên riêng, số liệu và đơn vị');
-    lines.push('• Tạo file .pptx để tôi tải về\n');
+    if(canva) {
+      lines.push('• Tất cả tiêu đề, bullet, chú giải biểu đồ phải là các hộp chữ có thể chỉnh sửa trong Canva; không rasterize chữ thành ảnh.');
+      lines.push('• Header mỗi slide nội dung giữ cùng vị trí và đúng '+(state.typography.body*1.5)+' pt; ưu tiên giữ font '+state.typography.font+' nếu Canva có hỗ trợ.');
+      lines.push('• Trước khi hoàn tất, kiểm tra font và cỡ chữ ở trang bìa, một header nội dung và Body. Nếu Canva không tự áp được, chỉ rõ hộp chữ nào cần chỉnh thủ công trong trình biên tập.');
+      lines.push('• Tạo presentation có thể chỉnh sửa trực tiếp trong Canva; không chuyển sang xuất PowerPoint.\n');
+    } else lines.push('• Tạo file .pptx để tôi tải về\n');
     lines.push('── NỘI DUNG NGUỒN ────────────────────────');
     lines.push(state.content.trim() || '[Dán tài liệu, nội dung của bạn vào đây]');
   }
@@ -1710,6 +2095,9 @@ function initSlidePromptBridge() {
 
 function openPlatform(provider) {
   if (provider !== 'chatgpt' && provider !== 'canva') return;
+  // Each destination always receives its own prompt, regardless of the
+  // preview mode the user was looking at just before clicking.
+  setOutputPlatform(provider === 'canva' ? 'canva' : 'pptx');
   if (bridgeConnected) {
     openViaBridge(provider);
     return;
@@ -1886,7 +2274,7 @@ initWeather();
 initProgress();
 initPalette();
 initCardKeyboard();
-buildPrompt();
+updateTypography();
 </script>
 </body>
 </html>
